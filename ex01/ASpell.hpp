@@ -2,7 +2,8 @@
 #define ASPELL_HPP
 
 #include <iostream>
-
+#include "ATarget.hpp"
+class ATarget;
 class ASpell{
 
     private:
@@ -14,12 +15,16 @@ class ASpell{
         ASpell(std::string _name, std::string  _effect);
         ~ASpell();
         ASpell( ASpell const& to_copy);
-        ASpell operator = (ASpell const& to_copy);
+        ASpell &operator = (ASpell const &to_copy);
 
 
         //GETTERS
-        std::string getName(void);
-        std::string getEffects(void);
+        std::string const &getName(void);
+        std::string const &getEffects(void)const;
+
+        void launch(ATarget const &el)const;
+
+        virtual ASpell *clone() const = 0; 
 };
 
 #endif
