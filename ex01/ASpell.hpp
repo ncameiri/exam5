@@ -14,10 +14,10 @@ class ASpell{
         virtual ~ASpell();
         ASpell(ASpell const &to_copy);
         ASpell &operator=(ASpell const &to_copy);
-        virtual ASpell *clone() = 0;
+        virtual ASpell *clone() const = 0;
 
-        std::string getName() const;
-        std::string getEffects() const;
+        std::string const &getName() const;
+        std::string const &getEffects() const;
 
         void launch(ATarget const &el);
 

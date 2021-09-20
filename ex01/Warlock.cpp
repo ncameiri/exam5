@@ -47,3 +47,29 @@ void Warlock::introduce() const{
     <<", "<<title<<
     "!"<<std::endl;
 }
+
+void Warlock::learnSpell(ASpell *sp){
+    std::vector< ASpell *>::iterator it;
+
+    for (it = spells.begin(); it != spells.end() ;it++){
+        if((*it)->getName() == sp->getName())
+            return;
+    }
+    spells.push_back(sp);
+}
+
+void Warlock::forgetSpell(std::string const &forg){
+    std::vector< ASpell *>::iterator it;
+
+    for (it = spells.begin(); it != spells.end(); it++){
+        if((*it)->getName() == forg){
+               delete (*it);
+               spells.erase(it);
+               return;
+        }
+    }
+}
+
+void Warlock::launchSpell(std::string sp, ATarget const &targ){
+    
+}

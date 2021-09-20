@@ -15,7 +15,7 @@ class ATarget{
         
         std::string const &getType() const;
 
-        virtual ATarget *clone() = 0;
+        virtual ATarget *clone() const = 0;
 
         void getHitBySpell(ASpell const &el) const;
 
