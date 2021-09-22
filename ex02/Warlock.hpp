@@ -5,6 +5,7 @@
 #include <vector>
 #include <iterator>
 #include "ASpell.hpp"
+#include "SpellBook.hpp"
 
 class ASpell;
 class ATarget;
@@ -14,7 +15,7 @@ class Warlock{
         std::string name;
         std::string title;
 
-        std::vector<ASpell *> spells;
+        SpellBook spells;
 
         Warlock(Warlock const &to_copy);
         Warlock &operator=(Warlock const &to_copy);

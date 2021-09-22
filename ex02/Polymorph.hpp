@@ -7,7 +7,8 @@ class Polymorph : public ASpell
 {   
     public:
     Polymorph();
-    ~Polymorph()
+    ~Polymorph();
+    ASpell *Polymorph::clone() const;
 
 };
 
