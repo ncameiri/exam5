@@ -1,8 +1,6 @@
-#ifndef ASPELL_HPP
-#define ASPELL_HPP
+#pragma once
 
-#include "Warlock.hpp"
-#include "ATarget.hpp"
+#include <iostream>
 class ATarget;
 class ASpell{
 
@@ -24,5 +22,5 @@ class ASpell{
 
 
 };
+#include "ATarget.hpp"
 
-#endif

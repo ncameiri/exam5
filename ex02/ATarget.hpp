@@ -1,10 +1,7 @@
-#ifndef ATARGET_HPP
-#define ATARGET_HPP
+#pragma once
 
-#include "Warlock.hpp"
-#include "ASpell.hpp"
-#include "ATarget.hpp"
-class ATarget;
+#include <iostream>
+
 class ASpell;
 class ATarget{
     private:
@@ -24,5 +21,6 @@ class ATarget{
 
 
 };
+#include "ASpell.hpp"
 
-#endif
+

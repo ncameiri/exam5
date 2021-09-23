@@ -1,7 +1,7 @@
-#ifndef SPELLBOOK_HPP
-#define SPELLBOOK_HPP
+#pragma once
 
 #include "Warlock.hpp"
+#include "ASpell.hpp"
 
 class SpellBook{
     private:
@@ -21,5 +21,3 @@ class SpellBook{
 
 };
 
-
-#endif

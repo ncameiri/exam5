@@ -17,25 +17,32 @@ SpellBook &SpellBook::operator=(SpellBook const &to_copy){
 void SpellBook::learnSpell(ASpell *el){
     std::vector< ASpell *>::iterator it;
 
-    for (it = spells.begin(); it != spells.end() ;it++){
-        if((*it)->getName() == sp->getName())
+    for (it = arr.begin(); it != arr.end() ;it++){
+        if((*it)->getName() == el->getName())
             return;
     }
-    spells.push_back(sp);
+    arr.push_back(el);
 }
 
 void SpellBook::forgetSpell(std::string const &spell){
  std::vector< ASpell *>::iterator it;
 
-    for (it = spells.begin(); it != spells.end(); it++){
-        if((*it)->getName() == forg){
+    for (it = arr.begin(); it != arr.end(); it++){
+        if((*it)->getName() == spell){
                delete (*it);
-               spells.erase(it);
+              arr.erase(it);
                return;
         }
     }
 }
 
 ASpell *SpellBook::createSpell(std::string const &spell){
+      std::vector< ASpell *>::iterator it;
+     for (it = arr.begin(); it != arr.end(); it++){
+        if((*it)->getName() == spell){
+           return (*it);
+        }
+     }
+     return NULL;
 
 }

@@ -1,24 +1,22 @@
-#ifndef WARLOCK_HPP
-#define WARLOCK_HPP
+#pragma once
 
 #include <iostream>
 #include <vector>
 #include <iterator>
-#include "ASpell.hpp"
-#include "SpellBook.hpp"
 
-class ASpell;
+class SpellBook;
 class ATarget;
+class ASpell;
 class Warlock{
 
     private:
         std::string name;
         std::string title;
 
-        SpellBook spells;
 
         Warlock(Warlock const &to_copy);
-        Warlock &operator=(Warlock const &to_copy);
+        Warlock &operator= (Warlock const &to_copy);
+        SpellBook *_spells;
     
     public:
         Warlock(std::string _name, std::string __title);
@@ -41,5 +39,8 @@ class Warlock{
 
 
 };
+#include "ASpell.hpp"
+#include "ATarget.hpp"
+#include "SpellBook.hpp"
 
-#endif
+

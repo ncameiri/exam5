@@ -2,7 +2,8 @@
 
 Warlock::Warlock(std::string _name, std::string _title):
     name(_name),
-    title(_title)
+    title(_title),
+    _spells(new SpellBook())
     {
         std::cout<< _name
         <<": This looks like another boring day."
@@ -11,7 +12,8 @@ Warlock::Warlock(std::string _name, std::string _title):
 
 Warlock::Warlock(Warlock const &to_copy):
     name(to_copy.name),
-    title(to_copy.title)
+    title(to_copy.title),
+    _spells(new SpellBook())
     {
         std::cout<< name
         <<": This looks like another boring day."
@@ -49,20 +51,16 @@ void Warlock::introduce() const{
 }
 
 void Warlock::learnSpell(ASpell *sp){
-
+    _spells->learnSpell(sp);
 }
 
 void Warlock::forgetSpell(std::string const &forg){
-   
+   _spells->forgetSpell(forg);
 }
 
 void Warlock::launchSpell(std::string sp, ATarget const &targ){
-    std::vector< ASpell *>::iterator it;
-     for (it = spells.begin(); it != spells.end(); it++){
-        if((*it)->getName() == sp){
-            (*it)->launch(targ);
-        }
-     }
-
+    ASpell *spel= _spells->createSpell(sp);
+    if(spel)
+        spel->launch(targ);
 
 }
