@@ -1,0 +1,1 @@
+run as ./new_class.sh Ola

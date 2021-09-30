@@ -1,26 +1,24 @@
 #ifndef ATARGET_HPP
 #define ATARGET_HPP
 
-#include "Warlock.hpp"
+#include <iostream>
 #include "ASpell.hpp"
-#include "ATarget.hpp"
-class ATarget;
 class ASpell;
 class ATarget{
     private:
         std::string type;
-
     public:
-        ATarget(std::string _type);
-        virtual ~ATarget();
-        ATarget(ATarget const &to_copy);
-        ATarget &operator=(ATarget const &to_copy);
-        
+        ATarget(std::string const &_type);
+        ~ATarget();
+        ATarget(ATarget const &rhs);
+        ATarget &operator=(ATarget const &rhs);
+
         std::string const &getType() const;
 
         virtual ATarget *clone() const = 0;
 
-        void getHitBySpell(ASpell const &el) const;
+        void getHitBySpell(ASpell const &el)const;
+
 
 
 };

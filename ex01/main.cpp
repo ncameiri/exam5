@@ -1,8 +1,6 @@
-#include "ASpell.hpp"
-#include "ATarget.hpp"
+#include"Warlock.hpp"
 #include "Dummy.hpp"
 #include "Fwoosh.hpp"
-
 
 int main()
 {
@@ -18,4 +16,5 @@ int main()
 
   richard.forgetSpell("Fwoosh");
   richard.launchSpell("Fwoosh", bob);
+  delete fwoosh;
 }

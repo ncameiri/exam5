@@ -3,14 +3,11 @@
 
 #include "ASpell.hpp"
 
-class Fwoosh : public ASpell
-{
+class Fwoosh : public ASpell{
     public:
-    Fwoosh();
-    ~Fwoosh();
-    ASpell *clone() const;
+        Fwoosh();
+        virtual ~Fwoosh();
+        ASpell *clone() const;
 };
-
-
 
 #endif

@@ -2,65 +2,57 @@
 
 Warlock::Warlock(std::string _name, std::string _title):
     name(_name),
-    title(_title),
-    _spells(new SpellBook())
+    title(_title)
     {
-        std::cout<< _name
-        <<": This looks like another boring day."
-        <<std::endl;
-    }
+      std::cout<< name<<": This looks like another boring day."<<std::endl;  
+    };
 
-Warlock::Warlock(Warlock const &to_copy):
-    name(to_copy.name),
-    title(to_copy.title),
-    _spells(new SpellBook())
-    {
-        std::cout<< name
-        <<": This looks like another boring day."
-        <<std::endl;
-    }
-Warlock::~Warlock(){
-         std::cout<<name
-        <<": My job here is done!"
-        <<std::endl;
+Warlock::Warlock(Warlock const &rhs){
+    name = rhs.name;
+    title = rhs.name;
 }
 
-Warlock &Warlock::operator= (Warlock const &to_copy){
-    name = to_copy.name;
-    title = to_copy.title;
-    return(*this);
+Warlock &Warlock::operator=(Warlock const &rhs){
+    this->name = rhs.name;
+    this->title = rhs.title;
+    return (*this);
+}
+Warlock::~Warlock(){
+    std::cout<< name<<": My job here is done!"<<std::endl;
+
+    
 }
 
 std::string const &Warlock::getName() const{
-    return(this->name);
+    return(name);
 }
 
 std::string const &Warlock::getTitle() const{
-    return(this->title);
+    return(title);
 }
 
-void Warlock::setTitle(std::string const &new_title){
-    title = new_title;
+void Warlock::setTitle(std::string const &_title){
+    title=_title;
 }
 
 void Warlock::introduce() const{
-    std::cout<< name
-    <<": I am "<< name
-    <<", "<<title<<
-    "!"<<std::endl;
+    std::cout<< name << ": I am "<<name
+    <<", "<<title<<" !"<<std::endl;
 }
 
-void Warlock::learnSpell(ASpell *sp){
-    _spells->learnSpell(sp);
+void Warlock::learnSpell(ASpell *el){
+        sp_book.learnSpell(el);
+    }
+    
+
+
+void Warlock::forgetSpell(std::string const &_spell){
+   sp_book.forgetSpell(_spell);
 }
 
-void Warlock::forgetSpell(std::string const &forg){
-   _spells->forgetSpell(forg);
+void Warlock::launchSpell(std::string const &sp_name, ATarget const &el){
+  ASpell *temp = sp_book.createSpell(sp_name);
+  if(temp)
+    temp->launch(el);
 }
 
-void Warlock::launchSpell(std::string sp, ATarget const &targ){
-    ASpell *spel= _spells->createSpell(sp);
-    if(spel)
-        spel->launch(targ);
-
-}

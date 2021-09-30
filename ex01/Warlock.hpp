@@ -5,38 +5,33 @@
 #include <vector>
 #include <iterator>
 #include "ASpell.hpp"
+#include "ATarget.hpp"
 
-class ASpell;
-class ATarget;
+
 class Warlock{
-
     private:
         std::string name;
         std::string title;
 
-        std::vector<ASpell *> spells;
+        std::vector<ASpell *> sp_book;
 
-        Warlock(Warlock const &to_copy);
-        Warlock &operator=(Warlock const &to_copy);
-    
+
+        Warlock( Warlock const &rhs);
+        Warlock &operator=(Warlock const &rhs);
     public:
-        Warlock(std::string _name, std::string __title);
-        ~Warlock();
+        Warlock(std::string _name,std::string _title);
+        virtual ~Warlock();
 
-        //getters
         std::string const &getName() const;
         std::string const &getTitle() const;
 
-        //setters
-        void setTitle(std::string const &new_title);
+        void setTitle(std::string const &_title);
 
-        void introduce() const;
+        void introduce() const;  
 
-        //ex01
-        void learnSpell(ASpell *sp);
-        void forgetSpell(std::string const &forg);
-        void launchSpell(std::string sp, ATarget const &targ);
-
+        void learnSpell(ASpell *el);
+        void forgetSpell(std::string const &_spell);
+        void launchSpell(std::string const &sp_name, ATarget const &el);
 
 
 };

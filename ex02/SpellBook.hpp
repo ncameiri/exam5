@@ -1,23 +1,22 @@
-#pragma once
+#ifndef SPELLBOOK_HPP
+#define SPELLBOOK_HPP
 
-#include "Warlock.hpp"
+#include <iostream>
+#include <vector>
+#include <iterator>
 #include "ASpell.hpp"
-
 class SpellBook{
     private:
-        SpellBook(SpellBook const &to_copy);
-        SpellBook &operator=(SpellBook const &to_copy);
-        
-
-        std::vector<ASpell *> arr;
+        std::vector<ASpell *> book;
     public:
         SpellBook();
         ~SpellBook();
-
+        SpellBook(SpellBook const &rhs);
+        SpellBook &operator=(SpellBook const &rhs);
+        
         void learnSpell(ASpell *el);
-        void forgetSpell(std::string const &spell);
-        ASpell *createSpell(std::string const &spell);
-
-
+        void forgetSpell(std::string const &sp);
+        ASpell *createSpell(std::string const &sp);
 };
 
+#endif
